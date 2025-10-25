@@ -1,0 +1,374 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4528,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "CMS"
+      ],
+      "targetBlank": false,
+      "title": "CMS VIEW",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "0VrNr_eNz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 19,
+        "w": 23,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "alias": "$tag_did $tag_f",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "8CtdwllIk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "5m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"value\") FROM \"wattmon_std_mv\" WHERE (\"did\" =~ /^$Devices$/ AND \"f\" =~ /^$Fields$/ AND \"dlid\" =~ /^$dlid$/) AND $timeFilter GROUP BY time(5m), \"dlid\", \"did\", \"f\" fill(none)\n",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "dlid",
+              "operator": "=~",
+              "value": "/^$dlid$/"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/^$Devices$/"
+            },
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=~",
+              "value": "/^$Fields$/"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_did $tag_f",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "8CtdwllIk"
+          },
+          "hide": true,
+          "query": "SELECT last(\"value\") FROM \"wattmon_std_mv\" WHERE (\"did\" =~ /^$Devices$/ AND \"f\" =~ /^$Fields$/ AND \"dlid\" =~ /^$dlid$/) AND $timeFilter GROUP BY time(5m), \"dlid\", \"did\", \"f\" fill(none)\n",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Graphical view",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [
+    "CMS"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "PMPPL_B01"
+          ],
+          "value": [
+            "44B7D09EA775"
+          ]
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Plants",
+        "multi": true,
+        "name": "dlid",
+        "options": [
+          {
+            "selected": false,
+            "text": "PSPPL_INDI_WMS",
+            "value": "74C90FAFFAB3"
+          },
+          {
+            "selected": false,
+            "text": "PSPPL_INDI",
+            "value": "74D5C6CF2CC4"
+          },
+          {
+            "selected": true,
+            "text": "PMPPL_B01(6.00MW)",
+            "value": "44B7D09EA775"
+          },
+          {
+            "selected": false,
+            "text": "PMPPL_B02(6.01MW)",
+            "value": "44B7D09EA7C2"
+          },
+          {
+            "selected": false,
+            "text": "PMPPL_WMS",
+            "value": "74D5C6CF2D57"
+          },
+          {
+            "selected": false,
+            "text": "PSPPL_MUTTAGI",
+            "value": "44B7D09EA719"
+          },
+          {
+            "selected": false,
+            "text": "PSPPL_MUTTAGI_WMS",
+            "value": "74C90F9824B1"
+          }
+        ],
+        "query": " PSPPL_INDI_WMS : 74C90FAFFAB3 , PSPPL_INDI : 74D5C6CF2CC4,PMPPL_B01(6.00MW) : 44B7D09EA775, PMPPL_B02(6.01MW) : 44B7D09EA7C2, PMPPL_WMS : 74D5C6CF2D57,PSPPL_MUTTAGI :  44B7D09EA719, PSPPL_MUTTAGI_WMS : 74C90F9824B1",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "Inverter01"
+          ],
+          "value": [
+            "Inverter01"
+          ]
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "0VrNr_eNz"
+        },
+        "definition": "SHOW TAG VALUES FROM \"wattmon_std_mv\" WITH KEY IN (did) WHERE \"dlid\" =~ /$dlid/",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Devices",
+        "multi": true,
+        "name": "Devices",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM \"wattmon_std_mv\" WITH KEY IN (did) WHERE \"dlid\" =~ /$dlid/",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "AC_Active_Power",
+          "value": "AC_Active_Power"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "0VrNr_eNz"
+        },
+        "definition": "SHOW TAG VALUES FROM \"wattmon_std_mv\" WITH KEY IN(f) WHERE \"dlid\" =~ /$dlid/ and \"did\" =~ /$Devices/",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Fields",
+        "multi": true,
+        "name": "Fields",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM \"wattmon_std_mv\" WITH KEY IN(f) WHERE \"dlid\" =~ /$dlid/ and \"did\" =~ /$Devices/",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "09. Data Explorer -Graphical View",
+  "uid": "WBRakKZNk40edqaaainaa",
+  "version": 2,
+  "weekStart": ""
+}

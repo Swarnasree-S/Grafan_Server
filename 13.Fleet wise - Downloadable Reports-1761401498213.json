@@ -1,0 +1,3939 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4532,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "CMS"
+      ],
+      "targetBlank": false,
+      "title": "CMS VIEW",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 898,
+      "panels": [],
+      "title": "Fleet Wise -Daily Generation Reports",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "color-background",
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:DD-MM-YYYY"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 908,
+      "options": {
+        "footer": {
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "alias": "Anagodu - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA775"
+            }
+          ]
+        },
+        {
+          "alias": "Anagodu-2 -$tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA7C2"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi -$tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA719"
+            }
+          ]
+        },
+        {
+          "alias": "Indi- $tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2CC4"
+            }
+          ]
+        },
+        {
+          "alias": "Anagodu Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *12910"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2D57"
+            },
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *6451"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90F9824B1"
+            }
+          ]
+        },
+        {
+          "alias": "Indi Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *6851"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90FAFFAB3"
+            }
+          ]
+        }
+      ],
+      "title": "Site Wise Actual Vs Target (kWh)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Anagodu",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Anagodu - 44B7D09EA775",
+                "Anagodu-2 -44B7D09EA7C2 "
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Muttagi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Muttagi -44B7D09EA719 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Indi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Indi- 74D5C6CF2CC4 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Anagodu - 44B7D09EA775": true,
+              "Anagodu-2 -44B7D09EA7C2 ": true,
+              "Indi- 74D5C6CF2CC4 ": true,
+              "Muttagi -44B7D09EA719 ": true
+            },
+            "indexByName": {
+              "Anagodu": 5,
+              "Anagodu - 44B7D09EA775": 1,
+              "Anagodu Expected - 74D5C6CF2D57": 6,
+              "Anagodu-2 -44B7D09EA7C2 ": 2,
+              "Indi": 9,
+              "Indi Expected - 74C90FAFFAB3": 10,
+              "Indi- 74D5C6CF2CC4 ": 4,
+              "Muttagi": 7,
+              "Muttagi -44B7D09EA719 ": 3,
+              "Muttagi Expected - 74C90F9824B1": 8,
+              "Time": 0
+            },
+            "renameByName": {
+              "Anagodu": "Anagodu Actual",
+              "Anagodu Expected - 74D5C6CF2D57": "Anagodu Target",
+              "Indi": "Indi Actual",
+              "Indi Expected - 74C90FAFFAB3": "Indi Target",
+              "Muttagi": "Muttagi Actual",
+              "Muttagi Expected - 74C90F9824B1": "Muttagi Target"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "color-background",
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:DD-MM-YYYY"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 901,
+      "options": {
+        "footer": {
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "alias": "Anagodu - $tag_did",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA775"
+            }
+          ]
+        },
+        {
+          "alias": "Anagodu -$tag_did",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA7C2"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi -$tag_did",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA719"
+            }
+          ]
+        },
+        {
+          "alias": "Indi- $tag_did",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2CC4"
+            }
+          ]
+        },
+        {
+          "alias": "Anagodu Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": true,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *12910"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2D57"
+            },
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": true,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *6451"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90F9824B1"
+            }
+          ]
+        },
+        {
+          "alias": "Indi Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": true,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *6851"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90FAFFAB3"
+            }
+          ]
+        }
+      ],
+      "title": "Fleet Wise Inverter Generation (kWh)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Anagodu",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Anagodu - 44B7D09EA775",
+                "Anagodu-2 -44B7D09EA7C2 "
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Muttagi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Muttagi -44B7D09EA719 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Indi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Indi- 74D5C6CF2CC4 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Anagodu": true,
+              "Anagodu - 44B7D09EA775": true,
+              "Anagodu-2 -44B7D09EA7C2 ": true,
+              "Indi": true,
+              "Indi- 74D5C6CF2CC4 ": true,
+              "Muttagi": true,
+              "Muttagi -44B7D09EA719 ": true
+            },
+            "indexByName": {
+              "Anagodu": 5,
+              "Anagodu - 44B7D09EA775": 1,
+              "Anagodu Expected - 74D5C6CF2D57": 6,
+              "Anagodu-2 -44B7D09EA7C2 ": 2,
+              "Indi": 9,
+              "Indi Expected - 74C90FAFFAB3": 10,
+              "Indi- 74D5C6CF2CC4 ": 4,
+              "Muttagi": 7,
+              "Muttagi -44B7D09EA719 ": 3,
+              "Muttagi Expected - 74C90F9824B1": 8,
+              "Time": 0
+            },
+            "renameByName": {
+              "Anagodu": "",
+              "Anagodu Expected - 74D5C6CF2D57": "Anagodu Target",
+              "Indi Expected - 74C90FAFFAB3": "Indi Target",
+              "Muttagi Expected - 74C90F9824B1": "Muttagi Target"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "color-background",
+            "inspect": false
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red"
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:DD-MM-YYYY"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 19
+      },
+      "id": 902,
+      "options": {
+        "footer": {
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "alias": "Anagodu - $tag_did",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2D57"
+            },
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi - $tag_did",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90F9824B1"
+            }
+          ]
+        },
+        {
+          "alias": "Indi - $tag_did",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90FAFFAB3"
+            }
+          ]
+        }
+      ],
+      "title": "Day Wise Insolation (kWh/m^2)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Anagodu",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Anagodu - 44B7D09EA775",
+                "Anagodu-2 -44B7D09EA7C2 "
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Muttagi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Muttagi -44B7D09EA719 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Indi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Indi- 74D5C6CF2CC4 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Anagodu": true,
+              "Anagodu - 44B7D09EA775": true,
+              "Anagodu-2 -44B7D09EA7C2 ": true,
+              "Indi": true,
+              "Indi- 74D5C6CF2CC4 ": true,
+              "Muttagi": true,
+              "Muttagi -44B7D09EA719 ": true
+            },
+            "indexByName": {
+              "Anagodu": 5,
+              "Anagodu - 44B7D09EA775": 1,
+              "Anagodu Expected - 74D5C6CF2D57": 6,
+              "Anagodu-2 -44B7D09EA7C2 ": 2,
+              "Indi": 9,
+              "Indi Expected - 74C90FAFFAB3": 10,
+              "Indi- 74D5C6CF2CC4 ": 4,
+              "Muttagi": 7,
+              "Muttagi -44B7D09EA719 ": 3,
+              "Muttagi Expected - 74C90F9824B1": 8,
+              "Time": 0
+            },
+            "renameByName": {
+              "Anagodu": "",
+              "Anagodu - kWh": "Anagodu",
+              "Anagodu Expected - 74D5C6CF2D57": "Anagodu Target",
+              "Indi - kWh": "Indi",
+              "Indi Expected - 74C90FAFFAB3": "Indi Target",
+              "Muttagi - kWh": "Muttagi",
+              "Muttagi Expected - 74C90F9824B1": "Muttagi Target"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "left",
+            "fillOpacity": 80,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red"
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Date"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:D-M-YY"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Indi Target (kWh)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "id": 900,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.8,
+        "groupWidth": 0.98,
+        "legend": {
+          "calcs": [
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "orientation": "auto",
+        "showValue": "always",
+        "stacking": "none",
+        "text": {},
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "alias": "Anagodu - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA775"
+            }
+          ]
+        },
+        {
+          "alias": "Anagodu-2 -$tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA7C2"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi -$tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA719"
+            }
+          ]
+        },
+        {
+          "alias": "Indi- $tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2CC4"
+            }
+          ]
+        },
+        {
+          "alias": "Anagodu Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *12910"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2D57"
+            },
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *6451"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90F9824B1"
+            }
+          ]
+        },
+        {
+          "alias": "Indi Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "1d,-330m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  " *6851"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90FAFFAB3"
+            }
+          ]
+        }
+      ],
+      "title": "Site Wise Actual Vs Target (kWh)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Anagodu",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Anagodu - 44B7D09EA775",
+                "Anagodu-2 -44B7D09EA7C2 "
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Muttagi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Muttagi -44B7D09EA719 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Indi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Indi- 74D5C6CF2CC4 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Anagodu - 44B7D09EA775": true,
+              "Anagodu-2 -44B7D09EA7C2 ": true,
+              "Indi- 74D5C6CF2CC4 ": true,
+              "Muttagi -44B7D09EA719 ": true
+            },
+            "indexByName": {
+              "Anagodu": 5,
+              "Anagodu - 44B7D09EA775": 1,
+              "Anagodu Expected - 74D5C6CF2D57": 6,
+              "Anagodu-2 -44B7D09EA7C2 ": 2,
+              "Indi": 9,
+              "Indi Expected - 74C90FAFFAB3": 10,
+              "Indi- 74D5C6CF2CC4 ": 4,
+              "Muttagi": 7,
+              "Muttagi -44B7D09EA719 ": 3,
+              "Muttagi Expected - 74C90F9824B1": 8,
+              "Time": 0
+            },
+            "renameByName": {
+              "Anagodu": "Anagodu Actual (kWh)",
+              "Anagodu Expected - 74D5C6CF2D57": "Anagodu Target (kWh)",
+              "Indi": "Indi Actual (kWh)",
+              "Indi Expected - 74C90FAFFAB3": "Indi Target (kWh)",
+              "Muttagi": "Muttagi Actual (kWh)",
+              "Muttagi Expected - 74C90F9824B1": "Muttagi Target(kWh",
+              "Time": "Date"
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 37
+      },
+      "id": 904,
+      "panels": [],
+      "title": "Fleet Wise -Monthly Generation Reports",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "268zGX6Nk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-background-solid",
+            "filterable": false,
+            "inspect": false
+          },
+          "decimals": 1,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "month"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:MM-YYYY"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PR * 100"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Month"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 112
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "text",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Year"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "text",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "unit"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 38
+      },
+      "id": 907,
+      "options": {
+        "footer": {
+          "enablePagination": false,
+          "fields": [],
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "268zGX6Nk"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    w.year,\r\n    -- Expected Energy per plant\r\n    SUM(CASE WHEN w.plantid = 23 THEN w.Expected_Energy END) AS Expected_Energy_23,\r\n    SUM(CASE WHEN w.plantid = 24 THEN w.Expected_Energy END) AS Expected_Energy_24,\r\n    SUM(CASE WHEN w.plantid = 29 THEN w.Expected_Energy END) AS Expected_Energy_29,\r\n    SUM(CASE WHEN w.plantid = 30 THEN w.Expected_Energy END) AS Expected_Energy_30,\r\n    -- Total Generation per plant\r\n    SUM(CASE WHEN g.plantid = 23 THEN g.total_generation END) AS total_generation_23,\r\n    SUM(CASE WHEN g.plantid = 24 THEN g.total_generation END) AS total_generation_24,\r\n    SUM(CASE WHEN g.plantid = 29 THEN g.total_generation END) AS total_generation_29,\r\n    SUM(CASE WHEN g.plantid = 30 THEN g.total_generation END) AS total_generation_30,\r\n    -- DC Capacity per plant\r\n    MAX(CASE WHEN w.plantid = 23 THEN w.Dccapacity END) AS Dccapacity_23,\r\n    MAX(CASE WHEN w.plantid = 24 THEN w.Dccapacity END) AS Dccapacity_24,\r\n    MAX(CASE WHEN w.plantid = 29 THEN w.Dccapacity END) AS Dccapacity_29,\r\n    MAX(CASE WHEN w.plantid = 30 THEN w.Dccapacity END) AS Dccapacity_30,\r\n    -- Day Irradiation per plant\r\n    SUM(CASE WHEN w.plantid = 23 THEN w.dayIrradiation END) AS dayIrradiation_23,\r\n    SUM(CASE WHEN w.plantid = 24 THEN w.dayIrradiation END) AS dayIrradiation_24,\r\n    SUM(CASE WHEN w.plantid = 29 THEN w.dayIrradiation END) AS dayIrradiation_29,\r\n    SUM(CASE WHEN w.plantid = 30 THEN w.dayIrradiation END) AS dayIrradiation_30,\r\n    /* Specific Yield per plant (kWh/kW) */\r\n    MAX(CASE WHEN w.plantid = 23 THEN g.Specific_Yield END) AS SpecificYield_23,\r\n    MAX(CASE WHEN w.plantid = 24 THEN g.Specific_Yield END) AS SpecificYield_24,\r\n    MAX(CASE WHEN w.plantid = 29 THEN g.Specific_Yield END) AS SpecificYield_29,\r\n    MAX(CASE WHEN w.plantid = 30 THEN g.Specific_Yield END) AS SpecificYield_30\r\n   \r\nFROM (\r\n    SELECT\r\n        ws.plantid,\r\n        ws.plantname,\r\n        pi.Dccapacity,\r\n        DATE_FORMAT(FROM_UNIXTIME(ws.createddate + 86400), '%Y') AS year,\r\n        SUM(ws.dayIrradiation * (pi.Dccapacity * 1000)) AS Expected_Energy,\r\n        SUM(ws.dayIrradiation) AS dayIrradiation\r\n    FROM weatherstation ws\r\n    INNER JOIN plantinfo pi\r\n        ON ws.plantid = pi.plantid\r\n    WHERE ws.plantid IN (23, 24, 29, 30)\r\n    GROUP BY ws.plantid, ws.plantname, pi.Dccapacity, year\r\n) w\r\nINNER JOIN (\r\n    SELECT\r\n        ig.plantid,\r\n        ig.plantname,\r\n        pi.Dccapacity,  \r\n        DATE_FORMAT(FROM_UNIXTIME(ig.createddate + 86400), '%Y') AS year,\r\n        SUM(ig.daygeneration / (pi.Dccapacity * 1000)) AS Specific_Yield,\r\n        SUM(CAST(REPLACE(ig.daygeneration, ',', '') AS DECIMAL(10,2))) as total_generation\r\n    FROM invgeneration ig\r\n    INNER JOIN plantinfo pi\r\n       ON ig.plantid = pi.plantid\r\n    WHERE ig.plantid IN (23, 24, 29, 30)\r\n    GROUP BY ig.plantid, ig.plantname, pi.Dccapacity, year\r\n) g\r\n    ON w.plantid = g.plantid AND w.year = g.year\r\nGROUP BY w.year\r\nORDER BY w.year;\r\n",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "dataloggerinfo",
+          "timeColumn": "createddate",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Plant Wise - Yearly Generation",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "month"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Dccapacity": true,
+              "Dccapacity_23": true,
+              "Dccapacity_24": true,
+              "Dccapacity_29": true,
+              "Dccapacity_30": true,
+              "plantname": false,
+              "total_generation Day_Irradiance": true,
+              "year": false
+            },
+            "indexByName": {
+              "Dccapacity_23": 17,
+              "Dccapacity_24": 18,
+              "Dccapacity_29": 19,
+              "Dccapacity_30": 20,
+              "Expected_Energy_23": 2,
+              "Expected_Energy_24": 6,
+              "Expected_Energy_29": 10,
+              "Expected_Energy_30": 14,
+              "SpecificYield_23": 4,
+              "SpecificYield_24": 8,
+              "SpecificYield_29": 12,
+              "SpecificYield_30": 16,
+              "dayIrradiation_23": 3,
+              "dayIrradiation_24": 7,
+              "dayIrradiation_29": 11,
+              "dayIrradiation_30": 15,
+              "total_generation_23": 1,
+              "total_generation_24": 5,
+              "total_generation_29": 9,
+              "total_generation_30": 13,
+              "year": 0
+            },
+            "renameByName": {
+              "Dccapacity_30": "",
+              "Expected_Energy_23": "PMPPL_B01 Target",
+              "Expected_Energy_24": "PMPPL_B02 Target",
+              "Expected_Energy_29": "PSPPL_MUTTAGI Target",
+              "Expected_Energy_30": "PSPPL_INDI Target",
+              "SpecificYield_23": "PMPPL_B01 (S.Y)",
+              "SpecificYield_24": "PMPPL_B02 (S.Y)",
+              "SpecificYield_29": "MUTTAGI (S.Y)",
+              "SpecificYield_30": "INDI (S.Y)",
+              "dayIrradiation_23": "B01_Insolation (kWh/m^2)",
+              "dayIrradiation_24": "B02_Insolation (kWh/m^2)",
+              "dayIrradiation_29": "MUTTAGI_Insolation (kWh/m^2)",
+              "dayIrradiation_30": "INDI_Insolation (kWh/m^2)",
+              "month": "Month",
+              "plantname": "Plant Name",
+              "total_dayIrradiation": "Expected Energy (kWh)",
+              "total_generation": "Plant Generation (kWh)",
+              "total_generation Inverter01": "Inv#01",
+              "total_generation Inverter02": "Inv#02",
+              "total_generation Inverter03": "Inv#03",
+              "total_generation Inverter04": "Inv#04",
+              "total_generation Inverter05": "Inv#05",
+              "total_generation Inverter06": "Inv#06",
+              "total_generation Inverter07": "Inv#07",
+              "total_generation Inverter08": "Inv#08",
+              "total_generation Inverter09": "Inv#09",
+              "total_generation Inverter10": "Inv#10",
+              "total_generation Inverter11": "Inv#11",
+              "total_generation Inverter12": "Inv#12",
+              "total_generation Inverter13": "Inv#13",
+              "total_generation Inverter14": "Inv#14",
+              "total_generation Inverter15": "Inv#15",
+              "total_generation Inverter16": "Inv#16",
+              "total_generation Inverter17": "Inv#17",
+              "total_generation Inverter18": "Inv#18",
+              "total_generation Inverter19": "Inv#19",
+              "total_generation Inverter20": "Inv#20",
+              "total_generation Inverter21": "Inv#21",
+              "total_generation Inverter22": "Inv#22",
+              "total_generation Inverter23": "Inv#23",
+              "total_generation Inverter24": "Inv#24",
+              "total_generation Inverter25": "Inv#25",
+              "total_generation Inverter26": "Inv#26",
+              "total_generation Inverter27": "Inv#27",
+              "total_generation Inverter28": "Inv#28",
+              "total_generation Inverter29": "Inv#29",
+              "total_generation Inverter30": "Inv#30",
+              "total_generation Inverter31": "Inv#31",
+              "total_generation Inverter32": "Inv#32",
+              "total_generation Inverter33": "Inv#33",
+              "total_generation Inverter34": "Inv#34",
+              "total_generation Inverter35": "Inv#35",
+              "total_generation Inverter36": "Inv#36",
+              "total_generation Inverter37": "Inv#37",
+              "total_generation Inverter38": "Inv#38",
+              "total_generation Inverter39": "Inv#39",
+              "total_generation Inverter40": "Inv#40",
+              "total_generation Inverter41": "Inv#41",
+              "total_generation Inverter42": "Inv#42",
+              "total_generation Inverter43": "Inv#43",
+              "total_generation Inverter44": "Inv#44",
+              "total_generation Inverter45": "Inv#45",
+              "total_generation Inverter46": "Inv#46",
+              "total_generation_23": "PMPPL_B01 Actual",
+              "total_generation_24": "PMPPL_B01 Actual",
+              "total_generation_29": "PSPPL_MUTTAGI Actual",
+              "total_generation_30": "PSPPL_INDI Actual",
+              "year": "Year"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "268zGX6Nk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-background-solid",
+            "filterable": false,
+            "inspect": false
+          },
+          "decimals": 1,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue"
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "month"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:MM-YYYY"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PR * 100"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Month"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 112
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "text",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Plant Generation (kWh)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 201
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 45
+      },
+      "id": 914,
+      "options": {
+        "footer": {
+          "enablePagination": false,
+          "fields": [],
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Month"
+          }
+        ]
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "268zGX6Nk"
+          },
+          "format": "table",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    w.month,\r\n    -- Expected Energy per plant\r\n    SUM(CASE WHEN w.plantid = 23 THEN w.Expected_Energy END) AS Expected_Energy_23,\r\n    SUM(CASE WHEN w.plantid = 24 THEN w.Expected_Energy END) AS Expected_Energy_24,\r\n    SUM(CASE WHEN w.plantid = 29 THEN w.Expected_Energy END) AS Expected_Energy_29,\r\n    SUM(CASE WHEN w.plantid = 30 THEN w.Expected_Energy END) AS Expected_Energy_30,\r\n    -- Total Generation per plant\r\n    SUM(CASE WHEN g.plantid = 23 THEN g.total_generation END) AS total_generation_23,\r\n    SUM(CASE WHEN g.plantid = 24 THEN g.total_generation END) AS total_generation_24,\r\n    SUM(CASE WHEN g.plantid = 29 THEN g.total_generation END) AS total_generation_29,\r\n    SUM(CASE WHEN g.plantid = 30 THEN g.total_generation END) AS total_generation_30,\r\n    -- DC Capacity per plant\r\n    MAX(CASE WHEN w.plantid = 23 THEN w.Dccapacity END) AS Dccapacity_23,\r\n    MAX(CASE WHEN w.plantid = 24 THEN w.Dccapacity END) AS Dccapacity_24,\r\n    MAX(CASE WHEN w.plantid = 29 THEN w.Dccapacity END) AS Dccapacity_29,\r\n    MAX(CASE WHEN w.plantid = 30 THEN w.Dccapacity END) AS Dccapacity_30,\r\n    -- Day Irradiation per plant\r\n    SUM(CASE WHEN w.plantid = 23 THEN w.dayIrradiation END) AS dayIrradiation_23,\r\n    SUM(CASE WHEN w.plantid = 24 THEN w.dayIrradiation END) AS dayIrradiation_24,\r\n    SUM(CASE WHEN w.plantid = 29 THEN w.dayIrradiation END) AS dayIrradiation_29,\r\n    SUM(CASE WHEN w.plantid = 30 THEN w.dayIrradiation END) AS dayIrradiation_30,\r\n    /* Specific Yield per plant (kWh/kW) */\r\n    MAX(CASE WHEN w.plantid = 23 THEN g.Specific_Yield END) AS SpecificYield_23,\r\n    MAX(CASE WHEN w.plantid = 24 THEN g.Specific_Yield END) AS SpecificYield_24,\r\n    MAX(CASE WHEN w.plantid = 29 THEN g.Specific_Yield END) AS SpecificYield_29,\r\n    MAX(CASE WHEN w.plantid = 30 THEN g.Specific_Yield END) AS SpecificYield_30\r\n   \r\nFROM (\r\n    SELECT\r\n        ws.plantid,\r\n        ws.plantname,\r\n        pi.Dccapacity,\r\n        DATE_FORMAT(FROM_UNIXTIME(ws.createddate + 86400), '%Y-%m') AS month,\r\n        SUM(ws.dayIrradiation * (pi.Dccapacity * 1000)) AS Expected_Energy,\r\n        SUM(ws.dayIrradiation) AS dayIrradiation\r\n    FROM weatherstation ws\r\n    INNER JOIN plantinfo pi\r\n        ON ws.plantid = pi.plantid\r\n    WHERE ws.plantid IN (23, 24, 29, 30)\r\n    GROUP BY ws.plantid, ws.plantname, pi.Dccapacity, month\r\n) w\r\nINNER JOIN (\r\n    SELECT\r\n        ig.plantid,\r\n        ig.plantname,\r\n        pi.Dccapacity,  \r\n        DATE_FORMAT(FROM_UNIXTIME(ig.createddate + 86400), '%Y-%m') AS month,\r\n        SUM(CAST(REPLACE(ig.daygeneration, ',', '') AS DECIMAL(10,2)) / (pi.Dccapacity * 1000)) AS Specific_Yield,\r\n        SUM(CAST(REPLACE(ig.daygeneration, ',', '') AS DECIMAL(10,2))) as total_generation\r\n    FROM invgeneration ig\r\n    INNER JOIN plantinfo pi\r\n       ON ig.plantid = pi.plantid\r\n    WHERE ig.plantid IN (23, 24, 29, 30)\r\n    GROUP BY ig.plantid, ig.plantname, pi.Dccapacity, month\r\n) g\r\n    ON w.plantid = g.plantid AND w.month = g.month\r\nGROUP BY w.month\r\nORDER BY w.month;\r\n",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "dataloggerinfo",
+          "timeColumn": "createddate",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Plant Wise - Monthly Generation",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "month"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Dccapacity": true,
+              "Dccapacity_23": true,
+              "Dccapacity_24": true,
+              "Dccapacity_29": true,
+              "Dccapacity_30": true,
+              "plantname": false,
+              "total_generation Day_Irradiance": true,
+              "year": true
+            },
+            "indexByName": {
+              "Dccapacity_23": 17,
+              "Dccapacity_24": 18,
+              "Dccapacity_29": 19,
+              "Dccapacity_30": 20,
+              "Expected_Energy_23": 2,
+              "Expected_Energy_24": 6,
+              "Expected_Energy_29": 10,
+              "Expected_Energy_30": 14,
+              "SpecificYield_23": 4,
+              "SpecificYield_24": 8,
+              "SpecificYield_29": 12,
+              "SpecificYield_30": 16,
+              "dayIrradiation_23": 3,
+              "dayIrradiation_24": 7,
+              "dayIrradiation_29": 11,
+              "dayIrradiation_30": 15,
+              "month": 0,
+              "total_generation_23": 1,
+              "total_generation_24": 5,
+              "total_generation_29": 9,
+              "total_generation_30": 13
+            },
+            "renameByName": {
+              "Dccapacity_30": "",
+              "Expected_Energy_23": "PMPPL_B01 Target",
+              "Expected_Energy_24": "PMPPL_B02 Target",
+              "Expected_Energy_29": "PSPPL_MUTTAGI Target",
+              "Expected_Energy_30": "PSPPL_INDI Target",
+              "SpecificYield_23": "PMPPL_B01 (S.Y)",
+              "SpecificYield_24": "PMPPL_B02 (S.Y)",
+              "SpecificYield_29": "MUTTAGI (S.Y)",
+              "SpecificYield_30": "INDI (S.Y)",
+              "dayIrradiation_23": "B01_Insolation (kWh/m^2)",
+              "dayIrradiation_24": "B02_Insolation (kWh/m^2)",
+              "dayIrradiation_29": "MUTTAGI_Insolation (kWh/m^2)",
+              "dayIrradiation_30": "INDI_Insolation (kWh/m^2)",
+              "month": "Month",
+              "plantname": "Plant Name",
+              "total_dayIrradiation": "Expected Energy (kWh)",
+              "total_generation": "Plant Generation (kWh)",
+              "total_generation Inverter01": "Inv#01",
+              "total_generation Inverter02": "Inv#02",
+              "total_generation Inverter03": "Inv#03",
+              "total_generation Inverter04": "Inv#04",
+              "total_generation Inverter05": "Inv#05",
+              "total_generation Inverter06": "Inv#06",
+              "total_generation Inverter07": "Inv#07",
+              "total_generation Inverter08": "Inv#08",
+              "total_generation Inverter09": "Inv#09",
+              "total_generation Inverter10": "Inv#10",
+              "total_generation Inverter11": "Inv#11",
+              "total_generation Inverter12": "Inv#12",
+              "total_generation Inverter13": "Inv#13",
+              "total_generation Inverter14": "Inv#14",
+              "total_generation Inverter15": "Inv#15",
+              "total_generation Inverter16": "Inv#16",
+              "total_generation Inverter17": "Inv#17",
+              "total_generation Inverter18": "Inv#18",
+              "total_generation Inverter19": "Inv#19",
+              "total_generation Inverter20": "Inv#20",
+              "total_generation Inverter21": "Inv#21",
+              "total_generation Inverter22": "Inv#22",
+              "total_generation Inverter23": "Inv#23",
+              "total_generation Inverter24": "Inv#24",
+              "total_generation Inverter25": "Inv#25",
+              "total_generation Inverter26": "Inv#26",
+              "total_generation Inverter27": "Inv#27",
+              "total_generation Inverter28": "Inv#28",
+              "total_generation Inverter29": "Inv#29",
+              "total_generation Inverter30": "Inv#30",
+              "total_generation Inverter31": "Inv#31",
+              "total_generation Inverter32": "Inv#32",
+              "total_generation Inverter33": "Inv#33",
+              "total_generation Inverter34": "Inv#34",
+              "total_generation Inverter35": "Inv#35",
+              "total_generation Inverter36": "Inv#36",
+              "total_generation Inverter37": "Inv#37",
+              "total_generation Inverter38": "Inv#38",
+              "total_generation Inverter39": "Inv#39",
+              "total_generation Inverter40": "Inv#40",
+              "total_generation Inverter41": "Inv#41",
+              "total_generation Inverter42": "Inv#42",
+              "total_generation Inverter43": "Inv#43",
+              "total_generation Inverter44": "Inv#44",
+              "total_generation Inverter45": "Inv#45",
+              "total_generation Inverter46": "Inv#46",
+              "total_generation_23": "PMPPL_B01 Actual",
+              "total_generation_24": "PMPPL_B02 Actual",
+              "total_generation_29": "PSPPL_MUTTAGI Actual",
+              "total_generation_30": "PSPPL_INDI Actual",
+              "year": "Year"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "268zGX6Nk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-background",
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-blue"
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Month"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:MM-YYYY"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "text",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "kWh_ PSPPL _INDI_Inverter19"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 274
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "kWh_ PMPPL_Block02_Inverter35"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 282
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "kWh_ PSPPL _INDI_Inverter01"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 229
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "kWh_ PMPPL_Block01_Inverter03"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 212
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 52
+      },
+      "id": 911,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "268zGX6Nk"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  STR_TO_DATE(DATE_FORMAT(FROM_UNIXTIME(createddate + 86400), '%Y-%m-01'), '%Y-%m-%d') AS time,\r\n  CONCAT(plantname, '_', devicetype) AS plant_inverter,\r\n  SUM(CAST(REPLACE(daygeneration, ',', '') AS DECIMAL(10,2))) AS kWh_\r\nFROM invgeneration\r\nWHERE plantid IN (23,24,29,30)\r\nGROUP BY time, plant_inverter\r\nORDER BY time, plant_inverter;\r\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "dataloggerinfo",
+          "timeColumn": "createddate",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": " Inverter wise - Monthly Generation",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "Time"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "total_generation Day_Irradiance": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "Time": "Month",
+              "total_generation Inverter01": "Inv#01",
+              "total_generation Inverter02": "Inv#02",
+              "total_generation Inverter03": "Inv#03",
+              "total_generation Inverter04": "Inv#04",
+              "total_generation Inverter05": "Inv#05",
+              "total_generation Inverter06": "Inv#06",
+              "total_generation Inverter07": "Inv#07",
+              "total_generation Inverter08": "Inv#08",
+              "total_generation Inverter09": "Inv#09",
+              "total_generation Inverter10": "Inv#10",
+              "total_generation Inverter11": "Inv#11",
+              "total_generation Inverter12": "Inv#12",
+              "total_generation Inverter13": "Inv#13",
+              "total_generation Inverter14": "Inv#14",
+              "total_generation Inverter15": "Inv#15",
+              "total_generation Inverter16": "Inv#16",
+              "total_generation Inverter17": "Inv#17",
+              "total_generation Inverter18": "Inv#18",
+              "total_generation Inverter19": "Inv#19",
+              "total_generation Inverter20": "Inv#20",
+              "total_generation Inverter21": "Inv#21",
+              "total_generation Inverter22": "Inv#22",
+              "total_generation Inverter23": "Inv#23",
+              "total_generation Inverter24": "Inv#24",
+              "total_generation Inverter25": "Inv#25",
+              "total_generation Inverter26": "Inv#26",
+              "total_generation Inverter27": "Inv#27",
+              "total_generation Inverter28": "Inv#28",
+              "total_generation Inverter29": "Inv#29",
+              "total_generation Inverter30": "Inv#30",
+              "total_generation Inverter31": "Inv#31",
+              "total_generation Inverter32": "Inv#32",
+              "total_generation Inverter33": "Inv#33",
+              "total_generation Inverter34": "Inv#34",
+              "total_generation Inverter35": "Inv#35",
+              "total_generation Inverter36": "Inv#36",
+              "total_generation Inverter37": "Inv#37",
+              "total_generation Inverter38": "Inv#38",
+              "total_generation Inverter39": "Inv#39",
+              "total_generation Inverter40": "Inv#40",
+              "total_generation Inverter41": "Inv#41",
+              "total_generation Inverter42": "Inv#42",
+              "total_generation Inverter43": "Inv#43",
+              "total_generation Inverter44": "Inv#44",
+              "total_generation Inverter45": "Inv#45",
+              "total_generation Inverter46": "Inv#46"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {
+              "Inv#01": 2,
+              "Inv#02": 3,
+              "Inv#03": 4,
+              "Inv#04": 5,
+              "Inv#05": 6,
+              "Inv#06": 7,
+              "Inv#07": 8,
+              "Inv#08": 9,
+              "Inv#09": 10,
+              "Inv#10": 11,
+              "Inv#11": 12,
+              "Inv#12": 13,
+              "Inv#13": 14,
+              "Inv#14": 15,
+              "Inv#15": 16,
+              "Inv#16": 17,
+              "Inv#17": 18,
+              "Inv#18": 19,
+              "Inv#19": 20,
+              "Inv#20": 21,
+              "Month": 0,
+              "Total": 1
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "268zGX6Nk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-background",
+            "inspect": false
+          },
+          "decimals": 1,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-blue"
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Month"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:MM-YYYY"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "text",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "kWh_ PSPPL _INDI_Inverter19"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 274
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "kWh_ PMPPL_Block02_Inverter35"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 282
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "kWh_ PSPPL _INDI_Inverter01"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 229
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SY_ PMPPL_Block01_Inverter01"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 225
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 59
+      },
+      "id": 916,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "268zGX6Nk"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    STR_TO_DATE(DATE_FORMAT(FROM_UNIXTIME(ig.createddate + 86400), '%Y-%m-01'), '%Y-%m-%d') AS time,\r\n    CONCAT(ig.plantname, '_', di.devicetype) AS plant_inverter,\r\n    SUM(\r\n        CAST(REPLACE(NULLIF(CAST(REPLACE(NULLIF(ig.daygeneration, 'NA'), ',', '') AS DECIMAL(10,2)),'NA'),',','') AS DECIMAL(10,2)) \r\n        / NULLIF(di.Capacity,0)\r\n    ) AS SY_   -- Specific Yield per inverter\r\nFROM invgeneration ig\r\nINNER JOIN deviceinfo di\r\n    ON ig.plantid = di.plantid\r\n    AND ig.devicetype = di.devicetype\r\nWHERE ig.plantid IN (23, 24, 29, 30)\r\nGROUP BY time, plant_inverter\r\nORDER BY time, plant_inverter;\r\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "dataloggerinfo",
+          "timeColumn": "createddate",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": " Inverter wise Specific Yield (kWh/kW) - Monthly Generation",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "Time"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "total_generation Day_Irradiance": true
+            },
+            "indexByName": {
+              "SY_ PMPPL_Block01_Inverter01": 2,
+              "SY_ PMPPL_Block01_Inverter02": 4,
+              "SY_ PMPPL_Block01_Inverter03": 6,
+              "SY_ PMPPL_Block01_Inverter04": 7,
+              "SY_ PMPPL_Block01_Inverter05": 8,
+              "SY_ PMPPL_Block01_Inverter06": 9,
+              "SY_ PMPPL_Block01_Inverter07": 10,
+              "SY_ PMPPL_Block01_Inverter08": 11,
+              "SY_ PMPPL_Block01_Inverter09": 12,
+              "SY_ PMPPL_Block01_Inverter10": 13,
+              "SY_ PMPPL_Block01_Inverter11": 14,
+              "SY_ PMPPL_Block01_Inverter12": 15,
+              "SY_ PMPPL_Block01_Inverter13": 16,
+              "SY_ PMPPL_Block01_Inverter14": 17,
+              "SY_ PMPPL_Block01_Inverter15": 18,
+              "SY_ PMPPL_Block01_Inverter16": 19,
+              "SY_ PMPPL_Block01_Inverter17": 20,
+              "SY_ PMPPL_Block01_Inverter18": 21,
+              "SY_ PMPPL_Block01_Inverter19": 22,
+              "SY_ PMPPL_Block01_Inverter20": 23,
+              "SY_ PMPPL_Block02_Inverter21": 24,
+              "SY_ PMPPL_Block02_Inverter22": 25,
+              "SY_ PMPPL_Block02_Inverter23": 26,
+              "SY_ PMPPL_Block02_Inverter24": 27,
+              "SY_ PMPPL_Block02_Inverter25": 28,
+              "SY_ PMPPL_Block02_Inverter26": 29,
+              "SY_ PMPPL_Block02_Inverter27": 30,
+              "SY_ PMPPL_Block02_Inverter28": 31,
+              "SY_ PMPPL_Block02_Inverter29": 32,
+              "SY_ PMPPL_Block02_Inverter30": 33,
+              "SY_ PMPPL_Block02_Inverter31": 34,
+              "SY_ PMPPL_Block02_Inverter32": 35,
+              "SY_ PMPPL_Block02_Inverter33": 36,
+              "SY_ PMPPL_Block02_Inverter34": 37,
+              "SY_ PMPPL_Block02_Inverter35": 38,
+              "SY_ PMPPL_Block02_Inverter36": 39,
+              "SY_ PMPPL_Block02_Inverter37": 40,
+              "SY_ PMPPL_Block02_Inverter38": 41,
+              "SY_ PMPPL_Block02_Inverter39": 42,
+              "SY_ PMPPL_Block02_Inverter40": 43,
+              "SY_ PSPPL _MUTTAGI_Inverter01": 44,
+              "SY_ PSPPL _MUTTAGI_Inverter02": 45,
+              "SY_ PSPPL _MUTTAGI_Inverter03": 46,
+              "SY_ PSPPL _MUTTAGI_Inverter04": 47,
+              "SY_ PSPPL _MUTTAGI_Inverter05": 48,
+              "SY_ PSPPL _MUTTAGI_Inverter06": 49,
+              "SY_ PSPPL _MUTTAGI_Inverter07": 50,
+              "SY_ PSPPL _MUTTAGI_Inverter08": 51,
+              "SY_ PSPPL _MUTTAGI_Inverter09": 52,
+              "SY_ PSPPL _MUTTAGI_Inverter10": 53,
+              "SY_ PSPPL _MUTTAGI_Inverter11": 54,
+              "SY_ PSPPL _MUTTAGI_Inverter12": 55,
+              "SY_ PSPPL _MUTTAGI_Inverter13": 56,
+              "SY_ PSPPL _MUTTAGI_Inverter14": 57,
+              "SY_ PSPPL _MUTTAGI_Inverter15": 58,
+              "SY_ PSPPL _MUTTAGI_Inverter16": 59,
+              "SY_ PSPPL _MUTTAGI_Inverter17": 60,
+              "SY_ PSPPL _MUTTAGI_Inverter18": 61,
+              "SY_ PSPPL _MUTTAGI_Inverter19": 62,
+              "SY_ PSPPL _MUTTAGI_Inverter20": 63,
+              "SY_ PSPPL _INDI_Inverter01": 64,
+              "SY_ PSPPL _INDI_Inverter02": 65,
+              "SY_ PSPPL _INDI_Inverter03": 66,
+              "SY_ PSPPL _INDI_Inverter04": 67,
+              "SY_ PSPPL _INDI_Inverter05": 68,
+              "SY_ PSPPL _INDI_Inverter06": 69,
+              "SY_ PSPPL _INDI_Inverter07": 70,
+              "SY_ PSPPL _INDI_Inverter08": 71,
+              "SY_ PSPPL _INDI_Inverter09": 72,
+              "SY_ PSPPL _INDI_Inverter10": 73,
+              "SY_ PSPPL _INDI_Inverter11": 74,
+              "SY_ PSPPL _INDI_Inverter12": 75,
+              "SY_ PSPPL _INDI_Inverter13": 76,
+              "SY_ PSPPL _INDI_Inverter14": 77,
+              "SY_ PSPPL _INDI_Inverter15": 78,
+              "SY_ PSPPL _INDI_Inverter16": 79,
+              "SY_ PSPPL _INDI_Inverter17": 80,
+              "SY_ PSPPL _INDI_Inverter18": 81,
+              "SY_ PSPPL _INDI_Inverter19": 82,
+              "SY_ PSPPL _INDI_Inverter20": 83,
+              "SY_ PSPPL _INDI_Inverter21": 84,
+              "Time": 0,
+              "kWh_ PMPPL_Block01_Inverter01": 1,
+              "kWh_ PMPPL_Block01_Inverter02": 3,
+              "kWh_ PMPPL_Block01_Inverter03": 5,
+              "kWh_ PMPPL_Block01_Inverter04": 85,
+              "kWh_ PMPPL_Block01_Inverter05": 86,
+              "kWh_ PMPPL_Block01_Inverter06": 87,
+              "kWh_ PMPPL_Block01_Inverter07": 88,
+              "kWh_ PMPPL_Block01_Inverter08": 89,
+              "kWh_ PMPPL_Block01_Inverter09": 90,
+              "kWh_ PMPPL_Block01_Inverter10": 91,
+              "kWh_ PMPPL_Block01_Inverter11": 92,
+              "kWh_ PMPPL_Block01_Inverter12": 93,
+              "kWh_ PMPPL_Block01_Inverter13": 94,
+              "kWh_ PMPPL_Block01_Inverter14": 95,
+              "kWh_ PMPPL_Block01_Inverter15": 96,
+              "kWh_ PMPPL_Block01_Inverter16": 97,
+              "kWh_ PMPPL_Block01_Inverter17": 98,
+              "kWh_ PMPPL_Block01_Inverter18": 99,
+              "kWh_ PMPPL_Block01_Inverter19": 100,
+              "kWh_ PMPPL_Block01_Inverter20": 101,
+              "kWh_ PMPPL_Block02_Inverter21": 102,
+              "kWh_ PMPPL_Block02_Inverter22": 103,
+              "kWh_ PMPPL_Block02_Inverter23": 104,
+              "kWh_ PMPPL_Block02_Inverter24": 105,
+              "kWh_ PMPPL_Block02_Inverter25": 106,
+              "kWh_ PMPPL_Block02_Inverter26": 107,
+              "kWh_ PMPPL_Block02_Inverter27": 108,
+              "kWh_ PMPPL_Block02_Inverter28": 109,
+              "kWh_ PMPPL_Block02_Inverter29": 110,
+              "kWh_ PMPPL_Block02_Inverter30": 111,
+              "kWh_ PMPPL_Block02_Inverter31": 112,
+              "kWh_ PMPPL_Block02_Inverter32": 113,
+              "kWh_ PMPPL_Block02_Inverter33": 114,
+              "kWh_ PMPPL_Block02_Inverter34": 115,
+              "kWh_ PMPPL_Block02_Inverter35": 116,
+              "kWh_ PMPPL_Block02_Inverter36": 117,
+              "kWh_ PMPPL_Block02_Inverter37": 118,
+              "kWh_ PMPPL_Block02_Inverter38": 119,
+              "kWh_ PMPPL_Block02_Inverter39": 120,
+              "kWh_ PMPPL_Block02_Inverter40": 121,
+              "kWh_ PSPPL _MUTTAGI_Inverter01": 122,
+              "kWh_ PSPPL _MUTTAGI_Inverter02": 123,
+              "kWh_ PSPPL _MUTTAGI_Inverter03": 124,
+              "kWh_ PSPPL _MUTTAGI_Inverter04": 125,
+              "kWh_ PSPPL _MUTTAGI_Inverter05": 126,
+              "kWh_ PSPPL _MUTTAGI_Inverter06": 127,
+              "kWh_ PSPPL _MUTTAGI_Inverter07": 128,
+              "kWh_ PSPPL _MUTTAGI_Inverter08": 129,
+              "kWh_ PSPPL _MUTTAGI_Inverter09": 130,
+              "kWh_ PSPPL _MUTTAGI_Inverter10": 131,
+              "kWh_ PSPPL _MUTTAGI_Inverter11": 132,
+              "kWh_ PSPPL _MUTTAGI_Inverter12": 133,
+              "kWh_ PSPPL _MUTTAGI_Inverter13": 134,
+              "kWh_ PSPPL _MUTTAGI_Inverter14": 135,
+              "kWh_ PSPPL _MUTTAGI_Inverter15": 136,
+              "kWh_ PSPPL _MUTTAGI_Inverter16": 137,
+              "kWh_ PSPPL _MUTTAGI_Inverter17": 138,
+              "kWh_ PSPPL _MUTTAGI_Inverter18": 139,
+              "kWh_ PSPPL _MUTTAGI_Inverter19": 140,
+              "kWh_ PSPPL _MUTTAGI_Inverter20": 141,
+              "kWh_ PSPPL _INDI_Inverter01": 142,
+              "kWh_ PSPPL _INDI_Inverter02": 143,
+              "kWh_ PSPPL _INDI_Inverter03": 144,
+              "kWh_ PSPPL _INDI_Inverter04": 145,
+              "kWh_ PSPPL _INDI_Inverter05": 146,
+              "kWh_ PSPPL _INDI_Inverter06": 147,
+              "kWh_ PSPPL _INDI_Inverter07": 148,
+              "kWh_ PSPPL _INDI_Inverter08": 149,
+              "kWh_ PSPPL _INDI_Inverter09": 150,
+              "kWh_ PSPPL _INDI_Inverter10": 151,
+              "kWh_ PSPPL _INDI_Inverter11": 152,
+              "kWh_ PSPPL _INDI_Inverter12": 153,
+              "kWh_ PSPPL _INDI_Inverter13": 154,
+              "kWh_ PSPPL _INDI_Inverter14": 155,
+              "kWh_ PSPPL _INDI_Inverter15": 156,
+              "kWh_ PSPPL _INDI_Inverter16": 157,
+              "kWh_ PSPPL _INDI_Inverter17": 158,
+              "kWh_ PSPPL _INDI_Inverter18": 159,
+              "kWh_ PSPPL _INDI_Inverter19": 160,
+              "kWh_ PSPPL _INDI_Inverter20": 161,
+              "kWh_ PSPPL _INDI_Inverter21": 162
+            },
+            "renameByName": {
+              "Time": "Month",
+              "total_generation Inverter01": "Inv#01",
+              "total_generation Inverter02": "Inv#02",
+              "total_generation Inverter03": "Inv#03",
+              "total_generation Inverter04": "Inv#04",
+              "total_generation Inverter05": "Inv#05",
+              "total_generation Inverter06": "Inv#06",
+              "total_generation Inverter07": "Inv#07",
+              "total_generation Inverter08": "Inv#08",
+              "total_generation Inverter09": "Inv#09",
+              "total_generation Inverter10": "Inv#10",
+              "total_generation Inverter11": "Inv#11",
+              "total_generation Inverter12": "Inv#12",
+              "total_generation Inverter13": "Inv#13",
+              "total_generation Inverter14": "Inv#14",
+              "total_generation Inverter15": "Inv#15",
+              "total_generation Inverter16": "Inv#16",
+              "total_generation Inverter17": "Inv#17",
+              "total_generation Inverter18": "Inv#18",
+              "total_generation Inverter19": "Inv#19",
+              "total_generation Inverter20": "Inv#20",
+              "total_generation Inverter21": "Inv#21",
+              "total_generation Inverter22": "Inv#22",
+              "total_generation Inverter23": "Inv#23",
+              "total_generation Inverter24": "Inv#24",
+              "total_generation Inverter25": "Inv#25",
+              "total_generation Inverter26": "Inv#26",
+              "total_generation Inverter27": "Inv#27",
+              "total_generation Inverter28": "Inv#28",
+              "total_generation Inverter29": "Inv#29",
+              "total_generation Inverter30": "Inv#30",
+              "total_generation Inverter31": "Inv#31",
+              "total_generation Inverter32": "Inv#32",
+              "total_generation Inverter33": "Inv#33",
+              "total_generation Inverter34": "Inv#34",
+              "total_generation Inverter35": "Inv#35",
+              "total_generation Inverter36": "Inv#36",
+              "total_generation Inverter37": "Inv#37",
+              "total_generation Inverter38": "Inv#38",
+              "total_generation Inverter39": "Inv#39",
+              "total_generation Inverter40": "Inv#40",
+              "total_generation Inverter41": "Inv#41",
+              "total_generation Inverter42": "Inv#42",
+              "total_generation Inverter43": "Inv#43",
+              "total_generation Inverter44": "Inv#44",
+              "total_generation Inverter45": "Inv#45",
+              "total_generation Inverter46": "Inv#46"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Total": true
+            },
+            "indexByName": {
+              "Month": 1,
+              "SY_ PMPPL_Block01_Inverter01": 3,
+              "SY_ PMPPL_Block01_Inverter02": 5,
+              "SY_ PMPPL_Block01_Inverter03": 7,
+              "SY_ PMPPL_Block01_Inverter04": 9,
+              "SY_ PMPPL_Block01_Inverter05": 11,
+              "SY_ PMPPL_Block01_Inverter06": 13,
+              "SY_ PMPPL_Block01_Inverter07": 15,
+              "SY_ PMPPL_Block01_Inverter08": 17,
+              "SY_ PMPPL_Block01_Inverter09": 19,
+              "SY_ PMPPL_Block01_Inverter10": 21,
+              "SY_ PMPPL_Block01_Inverter11": 23,
+              "SY_ PMPPL_Block01_Inverter12": 25,
+              "SY_ PMPPL_Block01_Inverter13": 27,
+              "SY_ PMPPL_Block01_Inverter14": 29,
+              "SY_ PMPPL_Block01_Inverter15": 31,
+              "SY_ PMPPL_Block01_Inverter16": 33,
+              "SY_ PMPPL_Block01_Inverter17": 35,
+              "SY_ PMPPL_Block01_Inverter18": 37,
+              "SY_ PMPPL_Block01_Inverter19": 39,
+              "SY_ PMPPL_Block01_Inverter20": 41,
+              "SY_ PMPPL_Block02_Inverter21": 43,
+              "SY_ PMPPL_Block02_Inverter22": 45,
+              "SY_ PMPPL_Block02_Inverter23": 47,
+              "SY_ PMPPL_Block02_Inverter24": 49,
+              "SY_ PMPPL_Block02_Inverter25": 51,
+              "SY_ PMPPL_Block02_Inverter26": 53,
+              "SY_ PMPPL_Block02_Inverter27": 55,
+              "SY_ PMPPL_Block02_Inverter28": 57,
+              "SY_ PMPPL_Block02_Inverter29": 59,
+              "SY_ PMPPL_Block02_Inverter30": 61,
+              "SY_ PMPPL_Block02_Inverter31": 63,
+              "SY_ PMPPL_Block02_Inverter32": 65,
+              "SY_ PMPPL_Block02_Inverter33": 67,
+              "SY_ PMPPL_Block02_Inverter34": 69,
+              "SY_ PMPPL_Block02_Inverter35": 71,
+              "SY_ PMPPL_Block02_Inverter36": 73,
+              "SY_ PMPPL_Block02_Inverter37": 75,
+              "SY_ PMPPL_Block02_Inverter38": 77,
+              "SY_ PMPPL_Block02_Inverter39": 79,
+              "SY_ PMPPL_Block02_Inverter40": 81,
+              "SY_ PSPPL _MUTTAGI_Inverter01": 83,
+              "SY_ PSPPL _MUTTAGI_Inverter02": 85,
+              "SY_ PSPPL _MUTTAGI_Inverter03": 87,
+              "SY_ PSPPL _MUTTAGI_Inverter04": 89,
+              "SY_ PSPPL _MUTTAGI_Inverter05": 91,
+              "SY_ PSPPL _MUTTAGI_Inverter06": 93,
+              "SY_ PSPPL _MUTTAGI_Inverter07": 95,
+              "SY_ PSPPL _MUTTAGI_Inverter08": 97,
+              "SY_ PSPPL _MUTTAGI_Inverter09": 99,
+              "SY_ PSPPL _MUTTAGI_Inverter10": 101,
+              "SY_ PSPPL _MUTTAGI_Inverter11": 103,
+              "SY_ PSPPL _MUTTAGI_Inverter12": 105,
+              "SY_ PSPPL _MUTTAGI_Inverter13": 107,
+              "SY_ PSPPL _MUTTAGI_Inverter14": 109,
+              "SY_ PSPPL _MUTTAGI_Inverter15": 111,
+              "SY_ PSPPL _MUTTAGI_Inverter16": 113,
+              "SY_ PSPPL _MUTTAGI_Inverter17": 115,
+              "SY_ PSPPL _MUTTAGI_Inverter18": 117,
+              "SY_ PSPPL _MUTTAGI_Inverter19": 119,
+              "SY_ PSPPL _MUTTAGI_Inverter20": 121,
+              "SY_ PSPPL _INDI_Inverter01": 123,
+              "SY_ PSPPL _INDI_Inverter02": 125,
+              "SY_ PSPPL _INDI_Inverter03": 127,
+              "SY_ PSPPL _INDI_Inverter04": 129,
+              "SY_ PSPPL _INDI_Inverter05": 131,
+              "SY_ PSPPL _INDI_Inverter06": 133,
+              "SY_ PSPPL _INDI_Inverter07": 135,
+              "SY_ PSPPL _INDI_Inverter08": 137,
+              "SY_ PSPPL _INDI_Inverter09": 139,
+              "SY_ PSPPL _INDI_Inverter10": 141,
+              "SY_ PSPPL _INDI_Inverter11": 143,
+              "SY_ PSPPL _INDI_Inverter12": 145,
+              "SY_ PSPPL _INDI_Inverter13": 147,
+              "SY_ PSPPL _INDI_Inverter14": 149,
+              "SY_ PSPPL _INDI_Inverter15": 151,
+              "SY_ PSPPL _INDI_Inverter16": 153,
+              "SY_ PSPPL _INDI_Inverter17": 155,
+              "SY_ PSPPL _INDI_Inverter18": 157,
+              "SY_ PSPPL _INDI_Inverter19": 159,
+              "SY_ PSPPL _INDI_Inverter20": 161,
+              "SY_ PSPPL _INDI_Inverter21": 163,
+              "Total": 0,
+              "kWh_ PMPPL_Block01_Inverter01": 2,
+              "kWh_ PMPPL_Block01_Inverter02": 4,
+              "kWh_ PMPPL_Block01_Inverter03": 6,
+              "kWh_ PMPPL_Block01_Inverter04": 8,
+              "kWh_ PMPPL_Block01_Inverter05": 10,
+              "kWh_ PMPPL_Block01_Inverter06": 12,
+              "kWh_ PMPPL_Block01_Inverter07": 14,
+              "kWh_ PMPPL_Block01_Inverter08": 16,
+              "kWh_ PMPPL_Block01_Inverter09": 18,
+              "kWh_ PMPPL_Block01_Inverter10": 20,
+              "kWh_ PMPPL_Block01_Inverter11": 22,
+              "kWh_ PMPPL_Block01_Inverter12": 24,
+              "kWh_ PMPPL_Block01_Inverter13": 26,
+              "kWh_ PMPPL_Block01_Inverter14": 28,
+              "kWh_ PMPPL_Block01_Inverter15": 30,
+              "kWh_ PMPPL_Block01_Inverter16": 32,
+              "kWh_ PMPPL_Block01_Inverter17": 34,
+              "kWh_ PMPPL_Block01_Inverter18": 36,
+              "kWh_ PMPPL_Block01_Inverter19": 38,
+              "kWh_ PMPPL_Block01_Inverter20": 40,
+              "kWh_ PMPPL_Block02_Inverter21": 42,
+              "kWh_ PMPPL_Block02_Inverter22": 44,
+              "kWh_ PMPPL_Block02_Inverter23": 46,
+              "kWh_ PMPPL_Block02_Inverter24": 48,
+              "kWh_ PMPPL_Block02_Inverter25": 50,
+              "kWh_ PMPPL_Block02_Inverter26": 52,
+              "kWh_ PMPPL_Block02_Inverter27": 54,
+              "kWh_ PMPPL_Block02_Inverter28": 56,
+              "kWh_ PMPPL_Block02_Inverter29": 58,
+              "kWh_ PMPPL_Block02_Inverter30": 60,
+              "kWh_ PMPPL_Block02_Inverter31": 62,
+              "kWh_ PMPPL_Block02_Inverter32": 64,
+              "kWh_ PMPPL_Block02_Inverter33": 66,
+              "kWh_ PMPPL_Block02_Inverter34": 68,
+              "kWh_ PMPPL_Block02_Inverter35": 70,
+              "kWh_ PMPPL_Block02_Inverter36": 72,
+              "kWh_ PMPPL_Block02_Inverter37": 74,
+              "kWh_ PMPPL_Block02_Inverter38": 76,
+              "kWh_ PMPPL_Block02_Inverter39": 78,
+              "kWh_ PMPPL_Block02_Inverter40": 80,
+              "kWh_ PSPPL _MUTTAGI_Inverter01": 82,
+              "kWh_ PSPPL _MUTTAGI_Inverter02": 84,
+              "kWh_ PSPPL _MUTTAGI_Inverter03": 86,
+              "kWh_ PSPPL _MUTTAGI_Inverter04": 88,
+              "kWh_ PSPPL _MUTTAGI_Inverter05": 90,
+              "kWh_ PSPPL _MUTTAGI_Inverter06": 92,
+              "kWh_ PSPPL _MUTTAGI_Inverter07": 94,
+              "kWh_ PSPPL _MUTTAGI_Inverter08": 96,
+              "kWh_ PSPPL _MUTTAGI_Inverter09": 98,
+              "kWh_ PSPPL _MUTTAGI_Inverter10": 100,
+              "kWh_ PSPPL _MUTTAGI_Inverter11": 102,
+              "kWh_ PSPPL _MUTTAGI_Inverter12": 104,
+              "kWh_ PSPPL _MUTTAGI_Inverter13": 106,
+              "kWh_ PSPPL _MUTTAGI_Inverter14": 108,
+              "kWh_ PSPPL _MUTTAGI_Inverter15": 110,
+              "kWh_ PSPPL _MUTTAGI_Inverter16": 112,
+              "kWh_ PSPPL _MUTTAGI_Inverter17": 114,
+              "kWh_ PSPPL _MUTTAGI_Inverter18": 116,
+              "kWh_ PSPPL _MUTTAGI_Inverter19": 118,
+              "kWh_ PSPPL _MUTTAGI_Inverter20": 120,
+              "kWh_ PSPPL _INDI_Inverter01": 122,
+              "kWh_ PSPPL _INDI_Inverter02": 124,
+              "kWh_ PSPPL _INDI_Inverter03": 126,
+              "kWh_ PSPPL _INDI_Inverter04": 128,
+              "kWh_ PSPPL _INDI_Inverter05": 130,
+              "kWh_ PSPPL _INDI_Inverter06": 132,
+              "kWh_ PSPPL _INDI_Inverter07": 134,
+              "kWh_ PSPPL _INDI_Inverter08": 136,
+              "kWh_ PSPPL _INDI_Inverter09": 138,
+              "kWh_ PSPPL _INDI_Inverter10": 140,
+              "kWh_ PSPPL _INDI_Inverter11": 142,
+              "kWh_ PSPPL _INDI_Inverter12": 144,
+              "kWh_ PSPPL _INDI_Inverter13": 146,
+              "kWh_ PSPPL _INDI_Inverter14": 148,
+              "kWh_ PSPPL _INDI_Inverter15": 150,
+              "kWh_ PSPPL _INDI_Inverter16": 152,
+              "kWh_ PSPPL _INDI_Inverter17": 154,
+              "kWh_ PSPPL _INDI_Inverter18": 156,
+              "kWh_ PSPPL _INDI_Inverter19": 158,
+              "kWh_ PSPPL _INDI_Inverter20": 160,
+              "kWh_ PSPPL _INDI_Inverter21": 162
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [
+    "CMS"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now/M",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "13.Fleet wise - Downloadable Reports",
+  "uid": "7Dnc3vWNk31fffcmeeadsaaaa",
+  "version": 7,
+  "weekStart": ""
+}

@@ -1,0 +1,793 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4533,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "CMS"
+      ],
+      "targetBlank": false,
+      "title": "CMS VIEW",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "color-background",
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Anagodu Actual"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 297
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 283
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 22,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "footer": {
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Time"
+          }
+        ]
+      },
+      "pluginVersion": "9.0.7",
+      "targets": [
+        {
+          "alias": "Anagodu - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA775"
+            }
+          ]
+        },
+        {
+          "alias": "Anagodu-2 -$tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA7C2"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi -$tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "44B7D09EA719"
+            }
+          ]
+        },
+        {
+          "alias": "Indi- $tag_dlid ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "f",
+              "operator": "=",
+              "value": "kWh_Day_Active"
+            },
+            {
+              "condition": "AND",
+              "key": "did",
+              "operator": "=~",
+              "value": "/.*Inv*./"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2CC4"
+            }
+          ]
+        },
+        {
+          "alias": "Anagodu Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              },
+              {
+                "params": [
+                  " *12910"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74D5C6CF2D57"
+            },
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            }
+          ]
+        },
+        {
+          "alias": "Muttagi Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              },
+              {
+                "params": [
+                  " *6451"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90F9824B1"
+            }
+          ]
+        },
+        {
+          "alias": "Indi Expected - $tag_dlid",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "0VrNr_eNz"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "did"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "dlid"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "f"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "wattmon_std_mv",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              },
+              {
+                "params": [
+                  " *6851"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "f",
+              "operator": "=",
+              "value": "Day_Irradiance"
+            },
+            {
+              "condition": "AND",
+              "key": "dlid",
+              "operator": "=",
+              "value": "74C90FAFFAB3"
+            }
+          ]
+        }
+      ],
+      "title": "15 Min-Site Wise Actual Vs Target (kWh)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Anagodu",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Anagodu - 44B7D09EA775",
+                "Anagodu-2 -44B7D09EA7C2 "
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Muttagi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Muttagi -44B7D09EA719 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Indi",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Indi- 74D5C6CF2CC4 "
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Anagodu - 44B7D09EA775": true,
+              "Anagodu-2 -44B7D09EA7C2 ": true,
+              "Indi- 74D5C6CF2CC4 ": true,
+              "Muttagi -44B7D09EA719 ": true
+            },
+            "indexByName": {
+              "Anagodu": 5,
+              "Anagodu - 44B7D09EA775": 1,
+              "Anagodu Expected - 74D5C6CF2D57": 6,
+              "Anagodu-2 -44B7D09EA7C2 ": 2,
+              "Indi": 9,
+              "Indi Expected - 74C90FAFFAB3": 10,
+              "Indi- 74D5C6CF2CC4 ": 4,
+              "Muttagi": 7,
+              "Muttagi -44B7D09EA719 ": 3,
+              "Muttagi Expected - 74C90F9824B1": 8,
+              "Time": 0
+            },
+            "renameByName": {
+              "Anagodu": "Anagodu Actual",
+              "Anagodu Expected - 74D5C6CF2D57": "Anagodu Target",
+              "Indi": "Indi Actual",
+              "Indi Expected - 74C90FAFFAB3": "Indi Target",
+              "Muttagi": "Muttagi Actual",
+              "Muttagi Expected - 74C90F9824B1": "Muttagi Target"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [
+    "CMS"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "14.Plant Wise Generation Report (15mns - Intvl)",
+  "uid": "7R9jfI6Hk",
+  "version": 2,
+  "weekStart": ""
+}
