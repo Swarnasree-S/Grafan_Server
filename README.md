@@ -76,6 +76,10 @@ assets/
 
 docs/
 └─ migration_guide.md # Documentation for migration process
+
+
+
+   
 ⚙️ How to Add Dashboard JSONs
 
 1.Place the exported dashboard JSON into the correct folder (e.g., dashboards/plant/).
