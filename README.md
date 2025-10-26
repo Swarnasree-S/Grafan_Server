@@ -51,18 +51,21 @@ I developed and optimized dashboards for **multi-plant O&M, inverter performance
 15. Slotwise Report Sample
 
 ---
+
+
 ## 📂 Repository Structure
 
 README.md
 LICENSE
 
-
-CMS_Dashboards_json/ # Export dashboards from Git under export dashboards folder
+CMS_Dashboards_json/ # CMS JSON scripts
 ├─ export_dashboards.py # Export dashboards scripts
 ├─ normalize_json.py # Normalize UIDs, folder names, and mappings
 └─ import_dashboards.py # Import dashboards scripts
+
 assets/
 └─ CMS_Dashboards_screenshots/ # Dashboard screenshots for README or documentation
+
 docs/
 └─ migration_guide.md # Documentation for migration process
 
