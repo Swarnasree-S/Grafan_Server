@@ -51,23 +51,22 @@ I developed and optimized dashboards for **multi-plant O&M, inverter performance
 15. Slotwise Report Sample
 
 ---
-
 ## 📂 Repository Structure
 
-```text
 README.md
 LICENSE
-dashboards/
-├─ fleet/                  # Fleet-level dashboards
-├─ plant/                  # Individual plant dashboards
-scripts/
-├─ import_dashboards.py    # Import JSONs via Grafana API
-└─ normalize_json.py       # Update UIDs, folder names, mappings
+|-Grafan_Dashboards_Json
+   1.Individual_Plants_dashboards/ # All exported dashboards
+├─ fleet/ # Fleet-level dashboards
+├─ plant/ # Individual plant dashboards
+├─ 2.cms_json/ # CMS JSON scripts
+│ ├─ export_dashboards.py # Export dashboards from Git under export dashboards folder
+│ ├─ normalize_json.py # Normalize UIDs, folder names, and mappings
+│ └─ import_dashboards.py # Import dashboards into Grafana
 assets/
-└─ screenshots/
+└─ screenshots/ # Dashboard screenshots for README or documentation
 docs/
-└─ migration_guide.md
-
+└─ migration_guide.md # Documentation for migration process
 
 ⚙️ How to Add Dashboard JSONs
 
