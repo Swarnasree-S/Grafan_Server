@@ -56,18 +56,15 @@ I developed and optimized dashboards for **multi-plant O&M, inverter performance
 README.md
 LICENSE
 
-Grafan_Dashboards_Json/ # All exported dashboards
+Individual_Plants_dashboards/ # All exported dashboards
 ├─ fleet/ # Fleet-level dashboards
-├─ plant dashboards/ # Individual plant dashboards
-│ ├─ export_dashboards.py # Export dashboards from Git under export dashboards folder
-│ ├─ normalize_json.py # Normalize UIDs, folder names, and mappings
-│ └─ import_dashboards.py # Import dashboards into Grafana
-├─ CMS_Dashboards_json/ # CMS JSON scripts
+├─ plant/ # Individual plant dashboards
+├─ cms_json/ # CMS JSON scripts
 │ ├─ export_dashboards.py # Export dashboards from Git under export dashboards folder
 │ ├─ normalize_json.py # Normalize UIDs, folder names, and mappings
 │ └─ import_dashboards.py # Import dashboards into Grafana
 assets/
-└─ CMS_Dashboards_screenshots/ # Dashboard screenshots for README or documentation
+└─ screenshots/ # Dashboard screenshots for README or documentation
 docs/
 └─ migration_guide.md # Documentation for migration process
 ⚙️ How to Add Dashboard JSONs
