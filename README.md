@@ -58,18 +58,16 @@ I developed and optimized dashboards for **multi-plant O&M, inverter performance
 README.md
 LICENSE
 
-## 📂 Repository Structure
-
 CMS_Dashboards_json/
-├─ export_dashboards.py
-├─ normalize_json.py
-└─ import_dashboards.py
+├─ export_dashboards.py # Export dashboards scripts
+├─ normalize_json.py # Normalize UIDs, folder names, and mappings
+└─ import_dashboards.py # Import dashboards scripts
 
 assets/
-└─ CMS_Dashboards_screenshots/
+└─ CMS_Dashboards_screenshots/ # Dashboard screenshots for README or documentation
 
 docs/
-└─ migration_guide.md
+└─ migration_guide.md # Documentation for migration process
 
 
 ⚙️ How to Add Dashboard JSONs
@@ -137,4 +135,4 @@ Each JSON includes metadata (title, folder, and export timestamp).
 
 You can preview dashboards via Grafana Import or by running the provided API script.
 
-Screenshots are available in assets/screenshots/ for a quick visual reference.
+Screenshots are available in assets/CMS_Dashboards_screenshots/ for a quick visual reference.
