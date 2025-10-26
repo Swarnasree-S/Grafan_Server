@@ -58,20 +58,20 @@ I developed and optimized dashboards for **multi-plant O&M, inverter performance
 README.md
 LICENSE
 
-CMS_Dashboards_json/ # CMS JSON scripts
-├─ export_dashboards.py # Export dashboards scripts
-├─ normalize_json.py # Normalize UIDs, folder names, and mappings
-└─ import_dashboards.py # Import dashboards scripts
+## 📂 Repository Structure
+
+CMS_Dashboards_json/
+├─ export_dashboards.py
+├─ normalize_json.py
+└─ import_dashboards.py
 
 assets/
-└─ CMS_Dashboards_screenshots/ # Dashboard screenshots for README or documentation
+└─ CMS_Dashboards_screenshots/
 
 docs/
-└─ migration_guide.md # Documentation for migration process
+└─ migration_guide.md
 
 
-
-   
 ⚙️ How to Add Dashboard JSONs
 
 1.Place the exported dashboard JSON into the correct folder (e.g., dashboards/plant/).
