@@ -63,7 +63,7 @@ CMS_Dashboards_json/
 └─ import_dashboards.py      # Import dashboards scripts
 
 assets/
-└─ CMS_Dashboards_screenshots/   # Dashboard screenshots for README or documentation
+└─screenshots/   # Dashboard screenshots for README or documentation
 
 docs/
 └─ migration_guide.md        # Documentation for migration process
