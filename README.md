@@ -58,7 +58,7 @@ I developed and optimized dashboards for **multi-plant O&M, inverter performance
 
 ```   ← opening triple backticks
 CMS_Dashboards_json/
-├─ export_dashboards.py      # Export dashboards scripts from git CMS_Dashboards_json folder
+├─ CMS_Scripts               # Export dashboards scripts from git CMS_Dashboards_json/CMS_Scripts folder
 ├─ normalize_json.py         # Normalize UIDs, folder names, and mappings
 └─ import_dashboards.py      # Import dashboards scripts
 
