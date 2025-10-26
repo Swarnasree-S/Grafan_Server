@@ -53,21 +53,21 @@ I developed and optimized dashboards for **multi-plant O&M, inverter performance
 ---
 
 
+
 ## 📂 Repository Structure
 
-README.md
-LICENSE
-
+```   ← opening triple backticks
 CMS_Dashboards_json/
-├─ export_dashboards.py # Export dashboards scripts
-├─ normalize_json.py # Normalize UIDs, folder names, and mappings
-└─ import_dashboards.py # Import dashboards scripts
+├─ export_dashboards.py      # Export dashboards scripts
+├─ normalize_json.py         # Normalize UIDs, folder names, and mappings
+└─ import_dashboards.py      # Import dashboards scripts
 
 assets/
-└─ CMS_Dashboards_screenshots/ # Dashboard screenshots for README or documentation
+└─ CMS_Dashboards_screenshots/   # Dashboard screenshots for README or documentation
 
 docs/
-└─ migration_guide.md # Documentation for migration process
+└─ migration_guide.md        # Documentation for migration process
+```
 
 
 ⚙️ How to Add Dashboard JSONs
