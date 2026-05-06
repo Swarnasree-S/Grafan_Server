@@ -1,0 +1,87 @@
+
+  .main {
+        width: 100%;
+        height: 100%;
+      }
+      .container {
+        display: block;
+        position: relative;
+        container-type: inline-size;
+         transform: translateY(1.75cm);
+      }
+      .flow-tile {
+        width: 20cqi;
+        height: 20cqi;
+        object-fit: cover;
+        position: absolute;
+      }
+	  .irradiance-data {
+        transform: translateX(33cqi) translateY(5cqi);
+      }
+	  .expected-data {
+        transform: translateX(17cqi) translateY(30cqi);
+      }
+
+      .sun {
+        width: 22cqi;
+        height: 22cqi;
+        transform: translateX(calc(25cqi - 11cqi))
+          translateY(calc(10cqi - 11cqi));
+      }
+	  .moon {
+        width: 22cqi;
+        height: 22cqi;
+        transform: translateX(calc(25cqi - 11cqi))
+          translateY(calc(10cqi - 11cqi));
+      }
+      .solar-data {
+        transform: translateX(55cqi) translateY(50cqi);
+      }
+      .panel {
+        width: 18cqi;
+        height: 18cqi;
+        transform: translateX(calc(50cqi - 9cqi)) translateY(calc(30cqi - 9cqi));
+      }
+
+      .meter {
+        width: 18cqi;
+        height: 18cqi;
+        transform: translateX(calc(50cqi - 9cqi)) translateY(calc(55cqi - 9cqi));
+      }
+
+      .grid {
+        transform: translateX(calc(25cqi - 9cqi)) translateY(calc(75cqi - 9cqi));
+      }
+
+      .factory {
+        transform: translateX(calc(75cqi - 9cqi)) translateY(calc(75cqi - 9cqi));
+      }
+
+      .solar-flow,
+      .expected-flow,
+      .solarpower-flow-path,
+      .gridpower-flow-path {
+        stroke-dasharray: 7;
+        stroke-dashoffset: 100;
+        animation: pathAnimation 5s linear infinite;
+      }
+
+      @keyframes pathAnimation {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .info {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .grid-data {
+        transform: translateX(08cqi) translateY(59cqi);
+      }
+	  .grid-import {
+        transform: translateX(41cqi) translateY(82cqi);
+      }
