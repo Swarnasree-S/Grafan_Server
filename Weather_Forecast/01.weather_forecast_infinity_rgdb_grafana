@@ -1,1 +1,63 @@
 
+7days interval display query:
+----------------------------------
+
+SELECT
+  'daily' AS type,
+  MAX(CASE WHEN DATE(weatherdate) = CURDATE() THEN weathercode END) AS Day1,
+  MAX(CASE WHEN DATE(weatherdate) = CURDATE() + INTERVAL 1 DAY THEN weathercode END) AS Day2,
+  MAX(CASE WHEN DATE(weatherdate) = CURDATE() + INTERVAL 2 DAY THEN weathercode END) AS Day3,
+  MAX(CASE WHEN DATE(weatherdate) = CURDATE() + INTERVAL 3 DAY THEN weathercode END) AS Day4,
+  MAX(CASE WHEN DATE(weatherdate) = CURDATE() + INTERVAL 4 DAY THEN weathercode END) AS Day5,
+  MAX(CASE WHEN DATE(weatherdate) = CURDATE() + INTERVAL 5 DAY THEN weathercode END) AS Day6,
+  MAX(CASE WHEN DATE(weatherdate) = CURDATE() + INTERVAL 6 DAY THEN weathercode END) AS Day7
+FROM weatherdaily
+WHERE plantid = 23
+  AND wmsstatus = 'daily'
+  AND weatherdate BETWEEN CURDATE() 
+                      AND CURDATE() + INTERVAL 6 DAY;
+
+
+query to update current status:
+----------------------
+SELECT weathercode
+FROM weatherdaily
+WHERE plantid = 66
+AND wmsstatus = 'current'
+ORDER BY createddate DESC
+LIMIT 1;
+
+
+
+/*we are storing data from inifity tool to testserver database renewgrid and kusum. retriving from db to grafana too avoid bad requests in grafana..... */
+
+table structure:
+--------------------
+headers:
+------
+
+id
+plantid
+wmsstatus
+weatherdate
+weathercode
+createddate
+
+
+daily weather link from open api:
+------------------------------
+https://api.open-meteo.com/v1/forecast?latitude=14.426&longitude=76.0319&current=weather_code&timezone=Asia/Kolkata
+
+
+weeekly weather link from open api:
+----------------------------------
+https://api.open-meteo.com/v1/forecast?latitude=14.426&longitude=76.0319&daily=weather_code&timezone=Asia/Kolkata
+
+
+1.we have to load lagitude,latitude and plant id for plant in weatherdata table, 
+2.after adding weatherdata manual load of cron
+  "1.https://dev.portal.renewgrid.in/kusum/weather-metadata.php (kusum), 
+   2.https://dev.portal.renewgrid.in/renewgrid/weather-metadata.php (renewgrid)".
+3.we get updated data under weatherdaily table.
+
+4.we setted cron to update every one hour
